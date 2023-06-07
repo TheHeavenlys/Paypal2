@@ -1,0 +1,280 @@
+[Akin@demo paypal]$
+[Akin@demo paypal]$
+[Akin@demo paypal]$ cd paypal2
+-bash: cd: paypal2: No such file or directory
+[Akin@demo paypal]$ cd
+[Akin@demo ~]$ cd paypal2
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git remote -v
+pay2    https://github.com/TheHeavenlys/Paypal2 (fetch)
+pay2    https://github.com/TheHeavenlys/Paypal2 (push)
+paypal2 https://github.com/TheHeavenlys/Paypal2 (fetch)
+paypal2 https://github.com/TheHeavenlys/Paypal2 (push)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ echo "print('Welcome to paypal')" >> app.py
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ cat app.py
+print('Welcome to paypal')
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app.py
+
+nothing added to commit but untracked files present (use "git add" to track)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git clean -n
+Would remove app.py
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls
+app.py  list  mode_modules  READme.md  test.java
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls -t
+app.py  test.java  mode_modules  READme.md  list
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git clean -f
+Removing app.py
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls
+list  mode_modules  READme.md  test.java
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls -t
+test.java  mode_modules  READme.md  list
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+nothing to commit, working tree clean
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ echo 'Application is ready for deployment' >> deploy.sh
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ cat deploy.sh
+Application is ready for deployment
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        deploy.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git add .
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   deploy.sh
+
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ cat deploy.sh
+Application is ready for deployment
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git reset
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ gti status
+-bash: gti: command not found
+[Akin@demo paypal2]$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        deploy.sh
+
+nothing added to commit but untracked files present (use "git add" to track)
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git add *
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   deploy.sh
+
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git commit -m "Deployment"
+[master bac731f] Deployment
+ 1 file changed, 1 insertion(+)
+ create mode 100644 deploy.sh
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git log
+commit bac731f4ed60a853f142589994608ca5031a4edb (HEAD -> master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 13:38:10 2023 -0400
+
+    Deployment
+
+commit 3f4d88d276f2e3a04bbee1e692c23154530b927f (pay2/master)
+Merge: 61e39ac 4f602c2
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:13:53 2023 -0400
+
+    Merge branch 'master' of https://github.com/TheHeavenlys/Paypal2
+    gitignore created. bug removed
+
+commit 61e39ac9cc6397460e481347d78d7026dbb1b754
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:02:26 2023 -0400
+
+    .gitignore created
+
+commit 4f602c2ad63c68be1919a0e1d6559df3fea8148e
+Merge: edd181e 6e3f7c6
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:25:52 2023 -0500
+
+    Merge pull request #2 from TheHeavenlys/bug_fixed
+
+    Update test.java (bug removed)
+
+commit 6e3f7c6fe77b0a8ce9b1ac43b8cdfb0d469b116f (pay2/bug_fixed)
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:19:09 2023 -0500
+
+    Update test.java (bug removed)
+
+commit edd181eb3cff5e154c309a01c2488b85331e7d15
+Merge: 624e435 9847585
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:11:31 2023 -0500
+
+    Merge pull request #1 from TheHeavenlys/stage
+
+    testing
+
+commit 9847585274f3e11f51eb6d9c469775b12bd1a704 (pay2/stage, stage)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:51:01 2023 -0400
+
+    testing
+
+commit 624e435e0fdcbb48f19210095e45ebfd766cfd84
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:29:16 2023 -0400
+
+    readme updated
+
+commit 5c0471e01ded813636afb90637c8bb4ac4dd79aa (pay2/development, development)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 15:53:15 2023 -0400
+
+    readme file created
+
+commit cab93fa580852b2b89e4567ebe8f1124e217ccf8 (paypal2/master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 10:47:44 2023 -0400
+
+    list modified
+
+commit 074ec1d6abaef112d16f6b5234508e71359545d3
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 10:29:40 2023 -0400
+
+    first commit
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git show bac731f4
+commit bac731f4ed60a853f142589994608ca5031a4edb (HEAD -> master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 13:38:10 2023 -0400
+
+    Deployment
+
+diff --git a/deploy.sh b/deploy.sh
+new file mode 100644
+index 0000000..a482d3b
+--- /dev/null
++++ b/deploy.sh
+@@ -0,0 +1 @@
++Application is ready for deployment
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls -t
+deploy.sh  test.java  mode_modules  READme.md  list
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git revert bac731f4
+[master 204ffa5] Revert "Deployment" Not yet ready for deployment This reverts commit bac731f4ed60a853f142589994608ca5031a4edb.
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 deploy.sh
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ ls
+list  mode_modules  READme.md  test.java
+[Akin@demo paypal2]$ ls -t
+test.java  mode_modules  READme.md  list
+[Akin@demo paypal2]$
+[Akin@demo paypal2]$ git log
+commit 204ffa53b5ac37a2cf0c268828884ed752bb3cbe (HEAD -> master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 13:41:57 2023 -0400
+
+    Revert "Deployment"
+    Not yet ready for deployment
+    This reverts commit bac731f4ed60a853f142589994608ca5031a4edb.
+
+commit bac731f4ed60a853f142589994608ca5031a4edb
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 13:38:10 2023 -0400
+
+    Deployment
+
+commit 3f4d88d276f2e3a04bbee1e692c23154530b927f (pay2/master)
+Merge: 61e39ac 4f602c2
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:13:53 2023 -0400
+
+    Merge branch 'master' of https://github.com/TheHeavenlys/Paypal2
+    gitignore created. bug removed
+
+commit 61e39ac9cc6397460e481347d78d7026dbb1b754
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Tue Jun 6 10:02:26 2023 -0400
+
+    .gitignore created
+
+commit 4f602c2ad63c68be1919a0e1d6559df3fea8148e
+Merge: edd181e 6e3f7c6
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:25:52 2023 -0500
+
+    Merge pull request #2 from TheHeavenlys/bug_fixed
+
+    Update test.java (bug removed)
+
+commit 6e3f7c6fe77b0a8ce9b1ac43b8cdfb0d469b116f (pay2/bug_fixed)
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:19:09 2023 -0500
+
+    Update test.java (bug removed)
+
+commit edd181eb3cff5e154c309a01c2488b85331e7d15
+Merge: 624e435 9847585
+Author: Akin Akinbode <135137663+pstjdking2@users.noreply.github.com>
+Date:   Mon Jun 5 16:11:31 2023 -0500
+
+    Merge pull request #1 from TheHeavenlys/stage
+
+    testing
+
+commit 9847585274f3e11f51eb6d9c469775b12bd1a704 (pay2/stage, stage)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:51:01 2023 -0400
+
+    testing
+
+commit 624e435e0fdcbb48f19210095e45ebfd766cfd84
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 16:29:16 2023 -0400
+
+    readme updated
+
+commit 5c0471e01ded813636afb90637c8bb4ac4dd79aa (pay2/development, development)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 15:53:15 2023 -0400
+
+    readme file created
+
+commit cab93fa580852b2b89e4567ebe8f1124e217ccf8 (paypal2/master)
+Author: pstjdking2 <pstjdking2@gmail.com>
+Date:   Mon Jun 5 10:47:44 2023 -0400
+
+    list modified
+[Akin@demo paypal2]$
+
